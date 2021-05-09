@@ -1,0 +1,19 @@
+<%- include("partials/header"); -%>
+<h1>Home</h1>
+<p><%=homeStartingContent%></p>
+
+<!--Both ways are good but forEach better -->
+<!--<%for(let i = 0 ; i < posts.length ; i++){%>-->
+<!--    <h1><%=posts[i].title%></h1>-->
+<!--    <p><%=posts[i].content%></p>-->
+<!--<%}%>-->
+
+<%posts.forEach((post) =>{ %>
+    <h1> <%=post.title%></h1>
+    <p style="display: inline-block"> <%=post.content.substring(0,100) + '...'%></p>
+    <a href="/posts/<%=post.title%>">Read more</a>
+<%})%>
+
+<a href="compose" class="anchorButton">Add Post</a>
+
+<%- include("partials/footer"); -%>
